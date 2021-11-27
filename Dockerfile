@@ -8,6 +8,8 @@ ENV LANG ru_RU.utf8
 
 RUN apt-get update
 RUN apt-get install -y sudo \
+    net-tools\
+    htop \
     curl \
     wget \
     git
