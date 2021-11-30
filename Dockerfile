@@ -30,11 +30,11 @@ RUN apt-get install -y software-properties-common && add-apt-repository ppa:ondr
 RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN apt-get install -y php8.1 \
-    php8.1-fpm \
-    php8.1-cli
+RUN apt-get install -y php7.4 php7.4-fpm php7.4-cli \
+    php8.0 php8.0-fpm php8.0-cli \
+    php8.1 php8.1-fpm php8.1-cli
 
-RUN apt-get install -y php-xdebug \
+RUN apt-get install -y php-xdebug-all-dev \
     php-pear \
     php-mbstring \
     php-bcmath \
@@ -42,30 +42,39 @@ RUN apt-get install -y php-xdebug \
     php-curl \
     php-date \
     php-db \
-    php-dev \
-    php-grpc \
+    php-dev
+
+RUN apt-get install -y php-grpc \
     php-imagick \
     php-intl \
     php-ldap \
     php-mcrypt \
     php-memcache \
     php-memcached \
-    php-mf2 \
-    php-mongo \
+    php-mf2
+
+RUN apt-get install -y php-mongo \
+    php-mcrypt \
     php-mongodb \
     php-odbc \
     php-pclzip \
     php-pgsql \
     php-redis \
     php-soap \
-    php-sodium \
+    php-mysql
+
+RUN apt-get install -y php-sodium \
     php-sqlite3 \
     php-ssh2 \
     php-tcpdf \
     php-tidy \
     php-tokenizer \
-    php-yaml \
-    php-zip
+    php-yaml
+    
+RUN apt-get install -y php-zip \
+    php-json \
+    php-xml \
+    php-uploadprogress
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -81,8 +90,17 @@ ignore_repeated_errors = On\n\
 post_max_size = 32M\n\
 upload_max_filesize = 32M\n\
 xdebug.mode = debug\n\
-" > /etc/php/8.1/mods-available/custom-config.ini
+" > /etc/php/custom-config.ini
 
+RUN ln -sf /etc/php/custom-config.ini /etc/php/7.4/mods-available/custom-config.ini
+RUN ln -sf /etc/php/7.4/mods-available/custom-config.ini /etc/php/7.4/fpm/conf.d/100-custom-config.ini
+RUN ln -sf /etc/php/7.4/mods-available/custom-config.ini /etc/php/7.4/cli/conf.d/100-custom-config.ini
+
+RUN ln -sf /etc/php/custom-config.ini /etc/php/8.0/mods-available/custom-config.ini
+RUN ln -sf /etc/php/8.0/mods-available/custom-config.ini /etc/php/8.0/fpm/conf.d/100-custom-config.ini
+RUN ln -sf /etc/php/8.0/mods-available/custom-config.ini /etc/php/8.0/cli/conf.d/100-custom-config.ini
+
+RUN ln -sf /etc/php/custom-config.ini /etc/php/8.1/mods-available/custom-config.ini
 RUN ln -sf /etc/php/8.1/mods-available/custom-config.ini /etc/php/8.1/fpm/conf.d/100-custom-config.ini
 RUN ln -sf /etc/php/8.1/mods-available/custom-config.ini /etc/php/8.1/cli/conf.d/100-custom-config.ini
 
