@@ -51,7 +51,9 @@ RUN apt-get install -y php-grpc \
     php-mcrypt \
     php-memcache \
     php-memcached \
-    php-mf2
+    php-mf2 \
+    php-zip \
+    php-json
 
 RUN apt-get install -y php-mongo \
     php-mcrypt \
@@ -69,10 +71,7 @@ RUN apt-get install -y php-sodium \
     php-tcpdf \
     php-tidy \
     php-tokenizer \
-    php-yaml
-    
-RUN apt-get install -y php-zip \
-    php-json \
+    php-yaml \
     php-xml \
     php-uploadprogress
 
