@@ -34,46 +34,51 @@ RUN apt-get install -y php7.4 php7.4-fpm php7.4-cli \
     php8.0 php8.0-fpm php8.0-cli \
     php8.1 php8.1-fpm php8.1-cli
 
-RUN apt-get install -y php-xdebug-all-dev \
-    php-pear \
-    php-mbstring \
-    php-bcmath \
-    php-bz2 \
-    php-curl \
-    php-date \
-    php-db \
-    php-dev
+RUN apt-get update
 
-RUN apt-get install -y php-grpc \
-    php-imagick \
-    php-intl \
-    php-ldap \
-    php-mcrypt \
-    php-memcache \
-    php-memcached \
-    php-mf2 \
-    php-zip \
-    php-json
+RUN apt-get install -y php-xdebug-all-dev
+RUN apt-get install -y php-pear
+RUN apt-get install -y php-mbstring
+RUN apt-get install -y php-bcmath
+RUN apt-get install -y php-bz2
+RUN apt-get install -y php-curl
+RUN apt-get install -y php-date
+RUN apt-get install -y php-db
+RUN apt-get install -y php-dev
 
-RUN apt-get install -y php-mongo \
-    php-mcrypt \
-    php-mongodb \
-    php-odbc \
-    php-pclzip \
-    php-pgsql \
-    php-redis \
-    php-soap \
-    php-mysql
+RUN apt-get install -y php-grpc
+RUN apt-get install -y php-imagick
+RUN apt-get install -y php-intl
+RUN apt-get install -y php-ldap
+RUN apt-get install -y php-mcrypt
+RUN apt-get install -y php-memcache
+RUN apt-get install -y php-memcached
+RUN apt-get install -y php-mf2
+RUN apt-get install -y php-zip
+RUN apt-get install -y php-json
 
-RUN apt-get install -y php-sodium \
-    php-sqlite3 \
-    php-ssh2 \
-    php-tcpdf \
-    php-tidy \
-    php-tokenizer \
-    php-yaml \
-    php-xml \
-    php-uploadprogress
+RUN apt-get install -y php-mongo
+RUN apt-get install -y php-mcrypt
+RUN apt-get install -y php-mongodb
+RUN apt-get install -y php-odbc
+RUN apt-get install -y php-pclzip
+RUN apt-get install -y php-pgsql
+RUN apt-get install -y php7.4-pgsql
+RUN apt-get install -y php8.0-pgsql
+RUN apt-get install -y php8.1-pgsql
+
+RUN apt-get install -y php-sodium
+RUN apt-get install -y php-redis
+RUN apt-get install -y php-soap
+RUN apt-get install -y php-mysql
+RUN apt-get install -y php-sqlite3
+RUN apt-get install -y php-ssh2
+RUN apt-get install -y php-tcpdf
+RUN apt-get install -y php-tidy
+RUN apt-get install -y php-tokenizer
+RUN apt-get install -y php-yaml
+RUN apt-get install -y php-xml
+RUN apt-get install -y php-uploadprogress
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
