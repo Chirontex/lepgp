@@ -94,6 +94,7 @@ ignore_repeated_errors = On\n\
 post_max_size = 32M\n\
 upload_max_filesize = 32M\n\
 xdebug.mode = debug\n\
+xdebug.client_host = host.docker.internal\n\
 " > /etc/php/custom-config.ini
 
 RUN ln -sf /etc/php/custom-config.ini /etc/php/7.4/mods-available/custom-config.ini
@@ -114,3 +115,4 @@ ENTRYPOINT service nginx start \
 
 EXPOSE 80
 EXPOSE 5432
+EXPOSE 9003
