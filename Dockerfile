@@ -36,12 +36,15 @@ RUN apt-get install -y php7.4 php7.4-fpm php7.4-cli \
 
 RUN apt-get update
 
-RUN apt-get install -y php-xdebug-all-dev
-RUN apt-get install -y php-pear
+RUN apt-get install -y --fix-missing php-xdebug-all-dev
+RUN apt-get install -y --fix-missing php-pear
 RUN apt-get install -y php-mbstring
 RUN apt-get install -y php-bcmath
 RUN apt-get install -y php-bz2
 RUN apt-get install -y php-curl
+
+RUN apt-get update
+
 RUN apt-get install -y php7.4-curl
 RUN apt-get install -y php8.0-curl
 RUN apt-get install -y php8.1-curl
@@ -49,12 +52,17 @@ RUN apt-get install -y php-date
 RUN apt-get install -y php-db
 RUN apt-get install -y php-dev
 
+RUN apt-get update
+
 RUN apt-get install -y php-grpc
 RUN apt-get install -y php-imagick
 RUN apt-get install -y php-intl
 RUN apt-get install -y php-ldap
 RUN apt-get install -y php-mcrypt
 RUN apt-get install -y php-memcache
+
+RUN apt-get update
+
 RUN apt-get install -y php-memcached
 RUN apt-get install -y php-mf2
 RUN apt-get install -y php-zip
@@ -65,6 +73,9 @@ RUN apt-get install -y php-mcrypt
 RUN apt-get install -y php-mongodb
 RUN apt-get install -y php-odbc
 RUN apt-get install -y php-pclzip
+
+RUN apt-get update
+
 RUN apt-get install -y php-pgsql
 RUN apt-get install -y php7.4-pgsql
 RUN apt-get install -y php8.0-pgsql
@@ -76,6 +87,9 @@ RUN apt-get install -y php-soap
 RUN apt-get install -y php-mysql
 RUN apt-get install -y php-sqlite3
 RUN apt-get install -y php-ssh2
+
+RUN apt-get update
+
 RUN apt-get install -y php-tcpdf
 RUN apt-get install -y php-tidy
 RUN apt-get install -y php-tokenizer
