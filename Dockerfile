@@ -42,6 +42,9 @@ RUN apt-get install -y php-mbstring
 RUN apt-get install -y php-bcmath
 RUN apt-get install -y php-bz2
 RUN apt-get install -y php-curl
+RUN apt-get install -y php7.4-curl
+RUN apt-get install -y php8.0-curl
+RUN apt-get install -y php8.1-curl
 RUN apt-get install -y php-date
 RUN apt-get install -y php-db
 RUN apt-get install -y php-dev
